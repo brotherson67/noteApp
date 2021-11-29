@@ -13,9 +13,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Requests
-app.post('/', (req, res) => {
-
+// index will be at root
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + "/public/index.html"));
 });
+// notes will be at notes path
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname + "/public/notes.html"));
+})
+
 
 
 // listen at port
