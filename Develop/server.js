@@ -7,6 +7,7 @@ const path = require('path');
 const app = express();
 // I haven't been able to get heroku to work but this is supposed to do something with it
 const PORT = process.env.PORT || 3301;
+const database = require('./db/db.json')
 
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
@@ -20,6 +21,10 @@ app.get('/', (req, res) => {
 // notes will be at notes path
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname + "/public/notes.html"));
+})
+// reading the database 
+app.get('/api/notes', (req, res) => {
+    res.json({ data: database})
 })
 
 
