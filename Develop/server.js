@@ -26,6 +26,12 @@ app.get('/notes', (req, res) => {
 app.get('/api/notes', (req, res) => {
     res.json({ data: database})
 })
+// posting to DB
+app.post('/api/notes', (req, res) => {
+    // this route will be initiated when the save button is clicked
+    res.send('post is being sent')
+    console.log('Something should be posted now')
+})
 
 
 
