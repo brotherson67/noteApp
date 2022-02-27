@@ -7,11 +7,14 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3301;
 const apiRoutes = require("./routes/apiRoutes");
-const htmlRoutes = require("./routes/apiRoutes");
+const htmlRoutes = require("./routes/htmlRoutes");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+
+app.use("/", htmlRoutes);
+app.use("/notes", apiRoutes);
 
 app.listen(PORT, () => {
   console.log(`The server is now active on port ${PORT}.`);
