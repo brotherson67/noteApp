@@ -1,0 +1,12 @@
+refactor repository to call the routes from a routes folder rather than from the server.jsfile
+
+routes/apiRoutes
+    import dependancies
+
+    create route to get all notes
+    create route to post all notes
+
+routes/htmlRoutes
+    get the route for the landing page
+    get the route for the notes page
+    export the module
