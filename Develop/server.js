@@ -1,41 +1,18 @@
 // imports
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
 
 // instantiate express and other variables
 const app = express();
-// I haven't been able to get heroku to work but this is supposed to do something with it
 const PORT = process.env.PORT || 3301;
-const database = require('./db/db.json')
+const apiRoutes = require("./routes/apiRoutes");
+const htmlRoutes = require("./routes/htmlRoutes");
 
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// Requests
-// index will be at root
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/index.html"));
-});
-// notes will be at notes path
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname + "/public/notes.html"));
-})
-// reading the database 
-app.get('/api/notes', (req, res) => {
-    res.json({ data: database})
-})
-// posting to DB
-app.post('/api/notes', (req, res) => {
-    // this route will be initiated when the save button is clicked
-    res.send('post is being sent')
-    console.log('Something should be posted now')
-})
-
-
-
-// listen at port
 app.listen(PORT, () => {
-    console.log(`The server is now active on port ${PORT}.`)
-})
+  console.log(`The server is now active on port ${PORT}.`);
+});
