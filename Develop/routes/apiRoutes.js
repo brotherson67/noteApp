@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
 
 // posting to DB
 router.post("/notes", (req, res) => {
+  req.body.id = Math.random() * 34534;
   newArr = database ? (newArr = database) : (newArr = []);
   newArr.push(req.body);
   fs.writeFile("./db/db.json", JSON.stringify(newArr), (err) => {
