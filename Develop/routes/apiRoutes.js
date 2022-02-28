@@ -4,9 +4,8 @@ const database = require("../db/db.json");
 const fs = require("fs");
 
 // reading the database
-router.get("/api/notes", (req, res) => {
-  console.log({ data: database });
-  res.json({ data: database });
+router.get("/notes", (req, res) => {
+  res.send(database);
 });
 
 router.get("/", (req, res) => {
@@ -18,7 +17,7 @@ router.post("/api/notes", (req, res) => {
   newArr = database ? (newArr = database) : (newArr = []);
   newArr.push(req.body);
   fs.writeFile("../db/db.json", JSON.stringify(newArr), (err) => {
-    console.log("there was an error");
+    console.log(err);
   });
   res.sendStatus(200);
   res.json();
