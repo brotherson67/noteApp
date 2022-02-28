@@ -1,12 +1,5 @@
 [
-  {
-    "title": "Test Title",
-    "text": "Test text",
-    "id": "1234"
-  },
-  {
-    "title": "Test Title2",
-    "text": "Test text2",
-    "id": "12345"
-  }
+  { "title": "Test Title", "text": "Test text", "id": "1234" },
+  { "title": "Test Title2", "text": "Test text2", "id": "12345" },
+  { "title": "tesdsta", "text": "asdfasdf", "id": "noics" }
 ]

@@ -5,18 +5,18 @@ const fs = require("fs");
 
 // reading the database
 router.get("/notes", (req, res) => {
-  res.send(database);
+  res.json(database);
 });
 
 router.get("/", (req, res) => {
-  res.send("test");
+  res.json("test");
 });
 
 // posting to DB
-router.post("/api/notes", (req, res) => {
+router.post("/notes", (req, res) => {
   newArr = database ? (newArr = database) : (newArr = []);
   newArr.push(req.body);
-  fs.writeFile("../db/db.json", JSON.stringify(newArr), (err) => {
+  fs.writeFile("./db/db.json", JSON.stringify(newArr), (err) => {
     console.log(err);
   });
   res.sendStatus(200);
