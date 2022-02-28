@@ -10,14 +10,18 @@ router.get("/api/notes", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  res.sendStatus("test");
+  res.send("test");
 });
 
 // posting to DB
 router.post("/api/notes", (req, res) => {
-  newArr.push(note); // Add new note to array
-
+  newArr = database ? (newArr = database) : (newArr = []);
+  newArr.push(req.body);
+  fs.writeFile("../db/db.json", JSON.stringify(newArr), (err) => {
+    console.log("there was an error");
+  });
   res.sendStatus(200);
+  res.json();
 });
 
 module.exports = router;

@@ -1,11 +1,8 @@
-// imports
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
-
 // instantiate express and other variables
 const app = express();
-const PORT = process.env.PORT || 3301;
+const PORT = process.env.PORT || 3001;
+
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
 
